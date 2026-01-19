@@ -1,0 +1,58 @@
+@mixin myFont() {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin myDisplayFlex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex($justify: center, $align: center, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin transition($props: all, $time: 0.3s, $ease: ease) {
+  transition: $props $time $ease;
+}
+
+@mixin button($bg, $color: #fff) {
+  text-decoration: none;
+  background-color: $bg;
+  color: $color;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: 600;
+  @include transition(all, 0.25s);
+}
+
+@mixin underline-hover($color, $height: 2.5px) {
+  position: relative;
+  padding-bottom: 5px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: $height;
+    background-color: $color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin sticky($top: 0, $z: 1000) {
+  position: sticky;
+  top: $top;
+  z-index: $z;
+}

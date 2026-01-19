@@ -1,17 +1,80 @@
-/* Error: expected more input.
- *   ,
- * 1 | @import 
- *   |         ^
- *   '
- *   src/sass/app.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: expected more input.\a   \2577 \a 1 \2502  @import \a   \2502          ^\a   \2575 \a   src/sass/app.scss 1:9  root stylesheet";
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 30px 120px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+nav .logo h2 {
+  font-size: 30px;
+  color: rgb(55, 55, 64);
+  font-weight: 700;
+}
+nav .logo h2 .red {
+  color: rgb(207, 19, 19);
+}
+nav .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+nav .links .default {
+  color: rgb(79, 79, 89);
+  border-bottom: 2.5px solid rgb(207, 19, 19);
+}
+nav .links a {
+  text-decoration: none;
+  color: rgb(126, 127, 145);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+}
+nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2.5px;
+  background-color: rgb(207, 19, 19);
+  transition: width 0.3s ease;
+}
+nav .links a:hover::after {
+  width: 100%;
+}
+nav .links a {
+  transition: color 0.3s ease;
+}
+nav .links a:hover {
+  color: rgb(79, 79, 89);
+}
+nav .booking .bookingBtn {
+  text-decoration: none;
+  background-color: rgb(207, 19, 19);
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+nav .booking .bookingBtn:hover {
+  background-color: rgb(169.6300884956, 15.5699115044, 15.5699115044);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30%;
+}
+
+/*# sourceMappingURL=app.css.map */

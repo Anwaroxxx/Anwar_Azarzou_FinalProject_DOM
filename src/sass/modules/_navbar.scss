@@ -1,0 +1,51 @@
+nav {
+  @include flex(space-between, center);
+  padding: 30px 120px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  @include sticky;
+
+  .logo h2 {
+    font-size: 30px;
+    color: rgb(55, 55, 64);
+    font-weight: 700;
+
+    .red {
+      color: $myred;
+    }
+  }
+
+  .links {
+    @include flex(center, center, 30px);
+    padding: 20px;
+
+    .default {
+      color: rgb(79, 79, 89);
+      border-bottom: 2.5px solid $myred;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(126, 127, 145);
+      font-weight: 500;
+      @include underline-hover($myred);
+      @include transition(color);
+
+      &:hover {
+        color: rgb(79, 79, 89);
+      }
+    }
+  }
+
+  .booking {
+    .bookingBtn {
+      @include button($myred);
+
+      &:hover {
+        background-color: darken($myred, 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
