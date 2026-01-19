@@ -1,12 +1,17 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Error: expected more input.
+ *   ,
+ * 1 | @import 
+ *   |         ^
+ *   '
+ *   src/sass/app.scss 1:9  root stylesheet */
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 120px;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected more input.\a   \2577 \a 1 \2502  @import \a   \2502          ^\a   \2575 \a   src/sass/app.scss 1:9  root stylesheet";
 }
