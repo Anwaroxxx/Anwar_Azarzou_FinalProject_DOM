@@ -1,4 +1,79 @@
-.hero{
-    @include myDisplayFlex();
-    gap: 30%;
+.hero {
+  @include flex(space-between, center);
+  background-color: $myBg;
+  padding: 50px 200px;
+  gap: 60px;
+
+  .leftHero {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+
+    .description {
+      @include myFont();
+      font-size: 25px;
+      line-height: 1.1;
+      color: rgb(67, 67, 77);
+
+      h1 {
+        font-weight: 700;
+      }
+    }
+
+    p {
+      color: rgb(126, 127, 145);
+      font-size: 16px;
+      max-width: 420px;
+    }
+
+    .Buttons {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-top: 15px;
+
+      .bookingBtn {
+        @include button($myred);
+      }
+
+      .video {
+        @include flex(center, center, 10px);
+        cursor: pointer;
+        color: rgb(79, 79, 89);
+        font-weight: 500;
+        @include transition(color);
+
+        i {
+          font-size: 32px;
+          color: $myred;
+        }
+
+        &:hover {
+          color: $myred;
+        }
+        p{
+            color: black;
+        }
+      }
+    }
+  }
+
+  .rightHero {
+    img {
+      width: 500px;
+      animation: float 3s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -6,6 +6,7 @@ nav {
   padding: 30px 120px;
   margin-bottom: 10px;
   background-color: #fff;
+  height: 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -72,9 +73,308 @@ nav .booking .bookingBtn:hover {
 
 .hero {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  background-color: rgb(242, 242, 242);
+  padding: 50px 200px;
+  gap: 60px;
+}
+.hero .leftHero {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+.hero .leftHero .description {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  line-height: 1.1;
+  color: rgb(67, 67, 77);
+}
+.hero .leftHero .description h1 {
+  font-weight: 700;
+}
+.hero .leftHero p {
+  color: rgb(126, 127, 145);
+  font-size: 16px;
+  max-width: 420px;
+}
+.hero .leftHero .Buttons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 15px;
+}
+.hero .leftHero .Buttons .bookingBtn {
+  text-decoration: none;
+  background-color: rgb(207, 19, 19);
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.hero .leftHero .Buttons .video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: rgb(79, 79, 89);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.hero .leftHero .Buttons .video i {
+  font-size: 32px;
+  color: rgb(207, 19, 19);
+}
+.hero .leftHero .Buttons .video:hover {
+  color: rgb(207, 19, 19);
+}
+.hero .leftHero .Buttons .video p {
+  color: black;
+}
+.hero .rightHero img {
+  width: 500px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.About {
+  padding: 50px 0;
+}
+.About .topAbout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-direction: column;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.About .topAbout .miniAbout {
+  color: rgb(126, 127, 145);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.About .topAbout h2 {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  color: rgb(55, 55, 64);
+}
+.About .topAbout h2 .red {
+  color: rgb(207, 19, 19);
+}
+.About .mainAboutSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-inline: 200px;
+  align-items: center;
+  gap: 20px;
+}
+.About .mainAboutSection .leftAbout .aboutPic img {
+  width: 91.7%;
+}
+.About .mainAboutSection .leftAbout .number {
+  background: #fff;
+  border: 3px solid rgb(126, 127, 145);
+  padding: 40px 40px;
+  text-align: center;
+  width: 80%;
+}
+.About .mainAboutSection .leftAbout .number p {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+}
+.About .mainAboutSection .leftAbout .number .red {
+  color: rgb(207, 19, 19);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.About .mainAboutSection .rightAbout {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+}
+.About .mainAboutSection .rightAbout .paraAbout {
+  display: flex;
+  flex-direction: column;
+}
+.About .mainAboutSection .rightAbout .paraAbout .gray {
+  color: rgb(126, 127, 145);
+  font-style: italic;
+}
+.About .mainAboutSection .rightAbout .paraAbout p {
+  color: rgb(79, 79, 89);
+  font-size: 15px;
+}
+.About .mainAboutSection .rightAbout .paraAbout .iconAbout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.About .mainAboutSection .rightAbout .paraAbout .iconAbout i {
+  color: rgb(207, 19, 19);
+  font-size: 18px;
+  margin-top: 4px;
+}
+.About .mainAboutSection .rightAbout .vidAbout {
+  position: relative;
+}
+.About .mainAboutSection .rightAbout .vidAbout img {
+  width: 550px;
+}
+
+.iconPlay {
+  cursor: pointer;
+  position: absolute;
+  right: 40%;
+  top: 40%;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(207, 19, 19);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30%;
+  box-shadow: 0 0 0 rgba(207, 19, 19, 0.6);
+  animation: pulse 2s infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.iconPlay i {
+  color: white;
+  font-size: 50px;
+}
+.iconPlay:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(207, 19, 19, 0.5);
+}
+.iconPlay:active {
+  transform: scale(0.95);
+}
+.iconPlay::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 2px solid rgba(207, 19, 19, 0.6);
+  animation: ripple 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(207, 19, 19, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 25px rgba(207, 19, 19, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(207, 19, 19, 0);
+  }
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+.whyUs {
+  display: grid;
+  grid-template-columns: 500px 300px 300px 300px;
+  padding-inline: 200px;
+  gap: 30px;
+}
+@media (max-width: 1400px) {
+  .whyUs {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-inline: 50px;
+  }
+}
+@media (max-width: 992px) {
+  .whyUs {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-inline: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .whyUs {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
+  }
+}
+.whyUs .mainCard {
+  background-color: rgb(207, 19, 19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 350px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whyUs .mainCard h2 {
+  color: white;
+  font-weight: 700;
+  font-size: 35px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.whyUs .mainCard p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+.whyUs .mainCard .learnMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 10px;
+  color: white;
+}
+.whyUs .mainCard .learnMore i, .whyUs .mainCard .learnMore p {
+  color: white;
+  transition: 0.3s ease, color 0.3s ease;
+}
+.whyUs .mainCard .learnMore:hover {
+  background-color: white;
+  color: rgb(207, 19, 19);
+}
+.whyUs .mainCard .learnMore:hover i, .whyUs .mainCard .learnMore:hover p {
+  color: rgb(207, 19, 19);
 }
 
 /*# sourceMappingURL=app.css.map */

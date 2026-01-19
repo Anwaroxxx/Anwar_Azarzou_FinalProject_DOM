@@ -1,0 +1,168 @@
+
+
+.About {
+  padding: 50px 0;
+
+  .topAbout {
+    @include flex(center, center);
+    flex-direction: column;
+    margin-bottom: 60px;
+    text-align: center;
+
+    .miniAbout {
+      color: rgb(126, 127, 145);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      @include myFont();
+      font-size: 48px;
+      color: rgb(55, 55, 64);
+
+      .red {
+        color: $myred;
+      }
+    }
+  }
+
+  .mainAboutSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 200px;
+    align-items: center;
+    gap: 20px;
+
+    .leftAbout {
+      .aboutPic {
+        img {
+          width: 91.7%;
+        }
+      }
+
+      .number {
+        background: #fff;
+        border: 3px solid $mygray;
+        padding: 40px 40px;
+        text-align: center;
+        width: 80%;
+
+        p {
+          color: rgb(0, 0, 0);
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .red {
+          color: $myred;
+          font-size: 26px;
+          font-weight: 700;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .rightAbout {
+      display: flex;
+      flex-direction: column;
+      width: 550px;
+
+      .paraAbout {
+        display: flex;
+        flex-direction: column;
+
+        .gray {
+          color: rgb(126, 127, 145);
+          font-style: italic;
+        }
+
+        p {
+          color: rgb(79, 79, 89);
+          font-size: 15px;
+        }
+
+        .iconAbout {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          i {
+            color: $myred;
+            font-size: 18px;
+            margin-top: 4px;
+          }
+        }
+      }
+
+      .vidAbout {
+        position: relative;
+
+        img {
+          width: 550px;
+        }
+      }
+    }
+  }
+}
+.iconPlay {
+  cursor: pointer;
+  position: absolute;
+  right: 40%;
+  top: 40%;
+  width: 100px;
+  height: 100px;
+  background-color: $myred;
+  border-radius: 50%;
+  @include myDisplayFlex();
+  box-shadow: 0 0 0 rgba($myred, 0.6);
+  animation: pulse 2s infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  i {
+    color: white;
+    font-size: 50px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba($myred, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    border: 2px solid rgba($myred, 0.6);
+    animation: ripple 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($myred, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 25px rgba($myred, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($myred, 0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}

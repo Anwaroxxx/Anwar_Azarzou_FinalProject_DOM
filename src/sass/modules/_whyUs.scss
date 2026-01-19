@@ -1,0 +1,81 @@
+.whyUs {
+  display: grid;
+  grid-template-columns: 500px 300px 300px 300px;
+  padding-inline: 200px;
+  gap: 30px;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-inline: 50px;
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-inline: 30px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
+  }
+
+  .mainCard {
+    background-color: $myred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 350px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    h2 {
+      color: white;
+      font-weight: 700;
+      font-size: 35px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .learnMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 10px;
+  color: white;
+
+  i,p {
+    color: white; 
+    transition: 0.3s ease, color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: white;
+    color: $myred; 
+
+    i,p {
+      color: $myred; 
+    }
+  }
+}
+
+  }
+}
