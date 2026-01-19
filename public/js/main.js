@@ -43,41 +43,122 @@ function handleCounterAnimation() {
 document.addEventListener('DOMContentLoaded', handleCounterAnimation);
 
 //!Menu JS
-document.addEventListener('DOMContentLoaded', function() {
-  const starters = document.querySelector('.starters');
-  const breakfast = document.querySelector('.breakfast');
-  const lunch = document.querySelector('.lunch');
-  const dinner = document.querySelector('.dinner');
-  const categoryName = document.querySelector('.categoriesName span');
-  const allCategories = [starters, breakfast, lunch, dinner];
+const startersBtn = document.querySelector('.categories .starters');
+const breakfastBtn = document.querySelector('.categories .breakfast');
+const lunchBtn = document.querySelector('.categories .lunch');
+const dinnerBtn = document.querySelector('.categories .dinner');
+const categoryName = document.querySelector('.categoriesName span');
+const allItems = document.querySelectorAll('.menuItems .items');
 
-  starters.addEventListener('click', function() {
-    removeActive();
-    starters.classList.add('active');
-    categoryName.textContent = 'STARTERS';
+startersBtn.addEventListener('click', () => {
+  startersBtn.classList.add('active');
+  breakfastBtn.classList.remove('active');
+  lunchBtn.classList.remove('active');
+  dinnerBtn.classList.remove('active');
+  categoryName.textContent = 'STARTERS';
+  
+  allItems.forEach(item => {
+    item.classList.remove('hide');
+    item.style.display = 'flex';
   });
-
-  breakfast.addEventListener('click', function() {
-    removeActive();
-    breakfast.classList.add('active');
-    categoryName.textContent = 'BREAKFAST';
-  });
-
-  lunch.addEventListener('click', function() {
-    removeActive();
-    lunch.classList.add('active');
-    categoryName.textContent = 'LUNCH';
-  });
-
-  dinner.addEventListener('click', function() {
-    removeActive();
-    dinner.classList.add('active');
-    categoryName.textContent = 'DINNER';
-  });
-
-  function removeActive() {
-    allCategories.forEach(cat => {
-      cat.classList.remove('active');
-    });
-  }
 });
+
+breakfastBtn.addEventListener('click', () => {
+  startersBtn.classList.remove('active');
+  breakfastBtn.classList.add('active');
+  lunchBtn.classList.remove('active');
+  dinnerBtn.classList.remove('active');
+  categoryName.textContent = 'BREAKFAST';
+  
+  allItems.forEach(item => {
+    if (item.classList.contains('breakfast')) {
+      item.classList.remove('hide');
+      item.style.display = 'flex';
+    } else {
+      item.classList.add('hide');
+      setTimeout(() => item.style.display = 'none', 300);
+    }
+  });
+});
+
+lunchBtn.addEventListener('click', () => {
+  startersBtn.classList.remove('active');
+  breakfastBtn.classList.remove('active');
+  lunchBtn.classList.add('active');
+  dinnerBtn.classList.remove('active');
+  categoryName.textContent = 'LUNCH';
+  
+  allItems.forEach(item => {
+    if (item.classList.contains('lunch')) {
+      item.classList.remove('hide');
+      item.style.display = 'flex';
+    } else {
+      item.classList.add('hide');
+      setTimeout(() => item.style.display = 'none', 300);
+    }
+  });
+});
+
+dinnerBtn.addEventListener('click', () => {
+  startersBtn.classList.remove('active');
+  breakfastBtn.classList.remove('active');
+  lunchBtn.classList.remove('active');
+  dinnerBtn.classList.add('active');
+  categoryName.textContent = 'DINNER';
+  
+  allItems.forEach(item => {
+    if (item.classList.contains('dinner')) {
+      item.classList.remove('hide');
+      item.style.display = 'flex';
+    } else {
+      item.classList.add('hide');
+      setTimeout(() => item.style.display = 'none', 300);
+    }
+  });
+});
+
+//!Testomonials carosel js
+const track = document.querySelector('.track');
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const totalSlides = slides.length;
+let autoSlideInterval;
+
+dots[0].classList.add('active');
+
+slides.forEach(slide => {
+  slide.style.display = 'flex';
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlide = index;
+    updateCarousel();
+    resetAutoSlide();
+  });
+});
+
+function updateCarousel() {
+  const offset = currentSlide * 100;
+  track.style.transform = `translateX(-${offset}%)`;
+  
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentSlide].classList.add('active');
+}
+
+function autoSlide() {
+  if (currentSlide >= totalSlides - 1) {
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+  updateCarousel();
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(autoSlide, 5000);
+}
+
+autoSlideInterval = setInterval(autoSlide, 5000);

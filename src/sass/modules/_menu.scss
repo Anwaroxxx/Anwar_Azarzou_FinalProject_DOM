@@ -48,6 +48,11 @@
           color: $myred;
         }
 
+        &.active {
+          color: $myred;
+          border-bottom: 3px solid $myred;
+        }
+
         &.starters {
           color: $myred;
           border-bottom: 3px solid $myred;
@@ -84,16 +89,26 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
+      position: relative;
 
       .items {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1;
+        animation: fadeIn 0.5s ease;
 
         &:hover {
           transform: translateY(-10px);
+        }
+
+        &.hide {
+          opacity: 0;
+          transform: scale(0.8);
+          position: absolute;
+          pointer-events: none;
         }
 
         .menuImg {
@@ -137,6 +152,17 @@
           }
         }
       }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
