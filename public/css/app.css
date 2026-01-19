@@ -302,19 +302,22 @@ nav .booking .bookingBtn:hover {
 }
 .whyUs {
   display: grid;
-  grid-template-columns: 500px 300px 300px 300px;
-  padding-inline: 200px;
+  grid-template-columns: 500px 1fr;
   gap: 30px;
+  padding-inline: 200px;
+  background-color: rgb(242, 242, 242);
+  align-items: center;
+  height: 500px;
 }
 @media (max-width: 1400px) {
   .whyUs {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     padding-inline: 50px;
   }
 }
 @media (max-width: 992px) {
   .whyUs {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding-inline: 30px;
   }
@@ -349,32 +352,334 @@ nav .booking .bookingBtn:hover {
   text-align: center;
   margin-bottom: 25px;
   line-height: 1.5;
+  margin: 0;
+  margin-bottom: 25px;
 }
 .whyUs .mainCard .learnMore {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 25px;
+  padding: 12px 25px;
   backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
   gap: 10px;
   color: white;
 }
-.whyUs .mainCard .learnMore i, .whyUs .mainCard .learnMore p {
+.whyUs .mainCard .learnMore p {
+  margin: 0;
   color: white;
-  transition: 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.whyUs .mainCard .learnMore i {
+  color: white;
+  transition: color 0.3s ease;
 }
 .whyUs .mainCard .learnMore:hover {
   background-color: white;
   color: rgb(207, 19, 19);
 }
-.whyUs .mainCard .learnMore:hover i, .whyUs .mainCard .learnMore:hover p {
+.whyUs .mainCard .learnMore:hover i,
+.whyUs .mainCard .learnMore:hover p {
   color: rgb(207, 19, 19);
+}
+.whyUs .cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width: 992px) {
+  .whyUs .cardContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .whyUs .cardContainer {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+.whyUs .cards {
+  background-color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.whyUs .cards .iconContainer {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+  background-color: #fff6f6;
+  color: rgb(207, 19, 19);
+  border: 1px solid rgb(207, 19, 19);
+  transition: all 0.3s ease;
+}
+.whyUs .cards:hover .iconContainer {
+  background-color: rgb(207, 19, 19);
+  color: #fff;
+}
+.whyUs .cards h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+.whyUs .cards p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.statistics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 60px 100px;
+  background-image: url("../../../public/images/stats-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.statistics::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.statistics .stats {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.statistics .stats h2 {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.statistics .stats p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+}
+@media (max-width: 992px) {
+  .statistics {
+    gap: 50px;
+    padding: 50px 50px;
+  }
+  .statistics .stats h2 {
+    font-size: 40px;
+  }
+  .statistics .stats p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .statistics {
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 30px;
+  }
+  .statistics .stats h2 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 600px) {
+  .statistics {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+}
+
+.menu {
+  padding: 60px 100px;
+  background-color: rgb(242, 242, 242);
+}
+.menu .topMenu {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu .topMenu .miniMenu {
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.menu .topMenu h2 {
+  font-size: 36px;
+  color: #333;
+  font-weight: 700;
+  margin: 0;
+}
+.menu .topMenu h2 .red {
+  color: rgb(207, 19, 19);
+}
+.menu .mainMenuSection .categories {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.menu .mainMenuSection .categories div {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.menu .mainMenuSection .categories div:hover {
+  color: rgb(207, 19, 19);
+}
+.menu .mainMenuSection .categories div.starters {
+  color: rgb(207, 19, 19);
+  border-bottom: 3px solid rgb(207, 19, 19);
+}
+.menu .mainMenuSection .name {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu .mainMenuSection .name p {
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.menu .mainMenuSection .name .categoriesName {
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+  margin: 0;
+}
+.menu .mainMenuSection .name .categoriesName span {
+  color: rgb(207, 19, 19);
+}
+.menu .mainMenuSection .menuItems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.menu .mainMenuSection .menuItems .items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.menu .mainMenuSection .menuItems .items:hover {
+  transform: translateY(-10px);
+}
+.menu .mainMenuSection .menuItems .items .menuImg {
+  width: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu .mainMenuSection .menuItems .items .menuImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.menu .mainMenuSection .menuItems .items .itemName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 8px;
+}
+.menu .mainMenuSection .menuItems .items .gray {
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.menu .mainMenuSection .menuItems .items .price {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+.menu .mainMenuSection .menuItems .items .price.red {
+  color: rgb(207, 19, 19);
+}
+@media (max-width: 1200px) {
+  .menu {
+    padding: 50px 60px;
+  }
+  .menu .mainMenuSection .menuItems {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .menu {
+    padding: 40px 30px;
+  }
+  .menu .topMenu h2 {
+    font-size: 28px;
+  }
+  .menu .mainMenuSection .categories {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .menu .mainMenuSection .categories div {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  .menu .mainMenuSection .menuItems {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .menu .mainMenuSection .menuItems .items .menuImg {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto 20px auto;
+  }
+}
+@media (max-width: 600px) {
+  .menu {
+    padding: 30px 20px;
+  }
+  .menu .mainMenuSection .categories {
+    gap: 10px;
+  }
+  .menu .mainMenuSection .categories div {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

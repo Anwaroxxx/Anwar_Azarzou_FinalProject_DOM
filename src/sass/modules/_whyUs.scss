@@ -1,16 +1,19 @@
 .whyUs {
   display: grid;
-  grid-template-columns: 500px 300px 300px 300px;
-  padding-inline: 200px;
+  grid-template-columns: 500px 1fr;
   gap: 30px;
+  padding-inline: 200px;
+  background-color: $myBg;
+  align-items: center;
+  height: 500px;
 
   @media (max-width: 1400px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     padding-inline: 50px;
   }
 
   @media (max-width: 992px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding-inline: 30px;
   }
@@ -45,37 +48,107 @@
       text-align: center;
       margin-bottom: 25px;
       line-height: 1.5;
+      margin: 0; 
+      margin-bottom: 25px; 
     }
 
     .learnMore {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 25px;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  gap: 10px;
-  color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 25px;
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      gap: 10px;
+      color: white;
 
-  i,p {
-    color: white; 
-    transition: 0.3s ease, color 0.3s ease;
-  }
+      p {
+        margin: 0; 
+        color: white;
+        transition: color 0.3s ease;
+      }
 
-  &:hover {
-    background-color: white;
-    color: $myred; 
+      i {
+        color: white;
+        transition: color 0.3s ease;
+      }
 
-    i,p {
-      color: $myred; 
+      &:hover {
+        background-color: white;
+        color: $myred;
+
+        i, 
+        p {
+          color: $myred;
+        }
+      }
     }
   }
-}
 
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  .cards {
+    background-color: #fff;
+    padding: 25px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .iconContainer {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 24px;
+      background-color: #fff6f6;
+      color: $myred;
+      border: 1px solid $myred;
+      transition: all 0.3s ease;
+    }
+
+    &:hover .iconContainer {
+      background-color: $myred;
+      color: #fff;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0; 
+    }
   }
 }

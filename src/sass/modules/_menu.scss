@@ -1,0 +1,204 @@
+.menu {
+  padding: 60px 100px;
+  background-color: $myBg;
+
+  .topMenu {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .miniMenu {
+      text-transform: uppercase;
+      color: #aaa;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #333;
+      font-weight: 700;
+      margin: 0;
+
+      .red {
+        color: $myred;
+      }
+    }
+  }
+
+  .mainMenuSection {
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #e0e0e0;
+
+      div {
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        color: #666;
+        transition: color 0.3s ease;
+        position: relative;
+
+        &:hover {
+          color: $myred;
+        }
+
+        &.starters {
+          color: $myred;
+          border-bottom: 3px solid $myred;
+        }
+      }
+    }
+
+    .name {
+      text-align: center;
+      margin-bottom: 40px;
+
+      p {
+        text-transform: uppercase;
+        color: #aaa;
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+
+      .categoriesName {
+        font-size: 28px;
+        color: #333;
+        font-weight: 700;
+        margin: 0;
+
+        span {
+          color: $myred;
+        }
+      }
+    }
+
+    .menuItems {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+
+      .items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+        }
+
+        .menuImg {
+          width: 300px;
+          overflow: hidden;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .itemName {
+          font-size: 20px;
+          font-weight: 600;
+          color: #333;
+          margin: 0;
+          margin-bottom: 8px;
+        }
+
+        .gray {
+          font-size: 14px;
+          color: #999;
+          font-style: italic;
+          margin: 0;
+          margin-bottom: 10px;
+        }
+
+        .price {
+          font-size: 22px;
+          font-weight: 700;
+          margin: 0;
+
+          &.red {
+            color: $myred;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 50px 60px;
+
+    .mainMenuSection {
+      .menuItems {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 30px;
+
+    .topMenu {
+      h2 {
+        font-size: 28px;
+      }
+    }
+
+    .mainMenuSection {
+      .categories {
+        gap: 20px;
+        flex-wrap: wrap;
+
+        div {
+          padding: 10px 15px;
+          font-size: 14px;
+        }
+      }
+
+      .menuItems {
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        .items {
+          .menuImg {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            margin: 0 auto 20px auto;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 30px 20px;
+
+    .mainMenuSection {
+      .categories {
+        gap: 10px;
+
+        div {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
