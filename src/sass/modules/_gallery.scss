@@ -1,0 +1,29 @@
+.gallery {
+  padding: 60px 200px;
+  background-color: #fff;
+
+  .topgallery {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .minigallery {
+      color: $mygray;
+      font-size: 14px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 50px;
+      color: #333;
+      font-weight: 700;
+      margin: 0;
+      @include myFont();
+
+      .red {
+        color: $myred;
+        margin-left: 10px;
+      }
+    }
+  }
+}
