@@ -1016,7 +1016,6 @@ nav .booking .bookingBtn:hover {
 
 .chefs {
   padding: 60px 100px;
-  background-color: rgb(242, 242, 242);
 }
 .chefs .topChef {
   text-align: center;
@@ -1169,6 +1168,166 @@ nav .booking .bookingBtn:hover {
   .chefs .chefCards {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+.BookATable {
+  padding: 60px 200px;
+  background-color: #fff;
+}
+.BookATable .topBook {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.BookATable .topBook .miniBook {
+  color: rgb(126, 127, 145);
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.BookATable .topBook h2 {
+  font-size: 50px;
+  color: #333;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.BookATable .topBook h2 .red {
+  color: rgb(207, 19, 19);
+  margin-left: 10px;
+}
+.BookATable .mainBook {
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+  background-color: rgb(242, 242, 242);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.BookATable .mainBook .leftBook {
+  flex: 0 0 auto;
+}
+.BookATable .mainBook .leftBook img {
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.BookATable .mainBook .rightBook {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 40px 40px 0;
+}
+.BookATable .mainBook .rightBook .firstFormRow,
+.BookATable .mainBook .rightBook .secondFormRow {
+  display: flex;
+  gap: 15px;
+}
+.BookATable .mainBook .rightBook .firstFormRow input,
+.BookATable .mainBook .rightBook .secondFormRow input {
+  flex: 1;
+  height: 50px;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+.BookATable .mainBook .rightBook .firstFormRow input:focus,
+.BookATable .mainBook .rightBook .secondFormRow input:focus {
+  outline: none;
+  border-color: rgb(207, 19, 19);
+}
+.BookATable .mainBook .rightBook .firstFormRow input::placeholder,
+.BookATable .mainBook .rightBook .secondFormRow input::placeholder {
+  color: #aaa;
+}
+.BookATable .mainBook .rightBook .firstFormRow input[type=date],
+.BookATable .mainBook .rightBook .firstFormRow input[type=time],
+.BookATable .mainBook .rightBook .firstFormRow input[type=number],
+.BookATable .mainBook .rightBook .secondFormRow input[type=date],
+.BookATable .mainBook .rightBook .secondFormRow input[type=time],
+.BookATable .mainBook .rightBook .secondFormRow input[type=number] {
+  color: #666;
+}
+.BookATable .mainBook .rightBook .thirdFormRow {
+  display: flex;
+}
+.BookATable .mainBook .rightBook .thirdFormRow textarea {
+  flex: 1;
+  min-height: 120px;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+.BookATable .mainBook .rightBook .thirdFormRow textarea:focus {
+  outline: none;
+  border-color: rgb(207, 19, 19);
+}
+.BookATable .mainBook .rightBook .thirdFormRow textarea::placeholder {
+  color: #aaa;
+}
+.BookATable .mainBook .rightBook .bookingBtn {
+  align-self: center;
+  padding: 15px 50px;
+  background-color: rgb(207, 19, 19);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(207, 19, 19, 0.3);
+}
+.BookATable .mainBook .rightBook .bookingBtn:hover {
+  background-color: rgb(169.6300884956, 15.5699115044, 15.5699115044);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(207, 19, 19, 0.4);
+}
+.BookATable .mainBook .rightBook .bookingBtn:active {
+  transform: translateY(0);
+}
+@media (max-width: 992px) {
+  .BookATable {
+    padding: 60px 50px;
+  }
+  .BookATable .mainBook {
+    flex-direction: column;
+  }
+  .BookATable .mainBook .leftBook img {
+    max-width: 100%;
+    height: 300px;
+  }
+  .BookATable .mainBook .rightBook {
+    padding: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .BookATable {
+    padding: 40px 20px;
+  }
+  .BookATable .topBook h2 {
+    font-size: 36px;
+  }
+  .BookATable .mainBook .rightBook {
+    padding: 30px 20px;
+  }
+  .BookATable .mainBook .rightBook .firstFormRow,
+  .BookATable .mainBook .rightBook .secondFormRow {
+    flex-direction: column;
   }
 }
 

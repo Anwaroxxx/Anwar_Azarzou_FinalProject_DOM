@@ -1,6 +1,5 @@
 .chefs {
   padding: 60px 100px;
-  background-color: $myBg;
 
   .topChef {
     text-align: center;
@@ -39,7 +38,7 @@
     .chefItems {
       background: #fff;
       border-radius: 8px;
-      overflow: visible; // Changed from hidden to visible
+      overflow: visible;
       box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
 

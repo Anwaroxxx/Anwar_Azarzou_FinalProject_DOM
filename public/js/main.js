@@ -1,3 +1,4 @@
+//!counter dial statistics section
 const counters = document.querySelectorAll(".stats h2");
 const section = document.querySelector(".statistics");
 
@@ -16,7 +17,7 @@ function startCounters() {
       if (count === target) {
         clearInterval(interval);
       }
-    }, 10);
+    }, 1);
   });
 }
 
@@ -201,7 +202,7 @@ setInterval(() => {
 }, 5000);
 
 window.addEventListener("resize", updateCarousel);
-//!Socials appearness
+//!Socials appearness in the chef section
 const chefCards = document.querySelectorAll(".chefItems");
 
 chefCards.forEach((card) => {
