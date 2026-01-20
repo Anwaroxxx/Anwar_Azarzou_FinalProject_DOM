@@ -1,0 +1,176 @@
+.chefs {
+  padding: 60px 100px;
+  background-color: $myBg;
+
+  .topChef {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .miniChef {
+      text-transform: uppercase;
+      color: #aaa;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 50px;
+      color: #333;
+      font-weight: 700;
+      margin: 0;
+      @include myFont();
+
+      .red {
+        color: $myred;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .chefCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .chefItems {
+      background: #fff;
+      border-radius: 8px;
+      overflow: visible; // Changed from hidden to visible
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      .chefPic {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0; // Only round top corners
+
+        .socials {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          position: absolute;
+          right: 15px;
+          bottom: 70px;
+          background-color: rgba(255, 255, 255, 0.95);
+          padding: 12px 8px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(20px);
+          transition: all 0.4s ease;
+          z-index: 10;
+
+          &.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+          }
+          a{
+            text-decoration: none;
+            i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            color: #666;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            
+
+            &:hover {
+              color: black;
+              transform: scale(1.1);
+            }
+          }
+          }
+          
+        }
+
+        img:first-child {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        img:nth-child(2) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: auto;
+          filter: brightness(0) invert(1);
+          display: block;
+        }
+      }
+
+      .chefInfo {
+        padding: 25px 30px;
+        background: #fff;
+
+        .chefNameA {
+          text-align: center;
+          margin-bottom: 15px;
+
+          h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin: 0 0 5px 0;
+            @include myFont();
+          }
+
+          p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+          }
+        }
+
+        .chefDescription {
+          p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 60px 50px;
+
+    .chefCards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+
+    .topChef h2 {
+      font-size: 36px;
+    }
+
+    .chefCards {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+}
