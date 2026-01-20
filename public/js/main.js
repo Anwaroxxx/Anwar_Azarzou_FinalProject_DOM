@@ -1,46 +1,35 @@
-//!Statistics counter function 
-function animateCounter(element, target, duration = 2000) {
-  let start = 0;
-  const increment = target / (duration / 16);
-  
-  const updateCounter = () => {
-    start += increment;
-    
-    if (start < target) {
-      element.textContent = Math.floor(start);
-      requestAnimationFrame(updateCounter);
-    } else {
-      element.textContent = target;
-    }
-  };
-  
-  updateCounter();
-}
+const counters = document.querySelectorAll(".stats h2");
+const section = document.querySelector(".statistics");
 
-function handleCounterAnimation() {
-  const statisticsSection = document.querySelector('.statistics');
-  const counters = document.querySelectorAll('.stats h2');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        counters.forEach(counter => {
-          const target = parseInt(counter.textContent);
-          counter.textContent = '0';
-          animateCounter(counter, target);
-        });
-        
-        observer.unobserve(entry.target);
+let started = false;
+
+function startCounters() {
+  counters.forEach(counter => {
+    let target = parseInt(counter.textContent);
+    let count = 0;
+    counter.textContent = 0;
+
+    const interval = setInterval(() => {
+      count++;
+      counter.textContent = count;
+
+      if (count === target) {
+        clearInterval(interval);
       }
-    });
-  }, {
-    threshold: 0.5
+    }, 10);
   });
-  
-  observer.observe(statisticsSection);
 }
 
-document.addEventListener('DOMContentLoaded', handleCounterAnimation);
+window.addEventListener("scroll", () => {
+  const sectionTop = section.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight && !started) {
+    started = true;
+    startCounters();
+  }
+});
+
 
 //!Menu JS
 const startersBtn = document.querySelector('.categories .starters');
@@ -117,48 +106,99 @@ dinnerBtn.addEventListener('click', () => {
   });
 });
 
-//!Testomonials carosel js
-const track = document.querySelector('.track');
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-const totalSlides = slides.length;
-let autoSlideInterval;
+//!Testimonials carousel js
+const testimonialsTrack = document.querySelector('.testimonials .track');
+const testimonialsSlides = document.querySelectorAll('.testimonials .slide');
+const testimonialsDots = document.querySelectorAll('.testimonials .dot');
+let currentTestimonialSlide = 0;
+const totalTestimonialSlides = testimonialsSlides.length;
+let autoTestimonialInterval;
 
-dots[0].classList.add('active');
+// Only run if testimonials section exists
+if (testimonialsTrack && testimonialsSlides.length > 0) {
+  testimonialsDots[0].classList.add('active');
 
-slides.forEach(slide => {
-  slide.style.display = 'flex';
-});
+  testimonialsSlides.forEach(slide => {
+    slide.style.display = 'flex';
+  });
 
-dots.forEach((dot, index) => {
+  testimonialsDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentTestimonialSlide = index;
+      updateTestimonialCarousel();
+      resetTestimonialAutoSlide();
+    });
+  });
+
+  function updateTestimonialCarousel() {
+    const offset = currentTestimonialSlide * 100;
+    testimonialsTrack.style.transform = `translateX(-${offset}%)`;
+    
+    testimonialsDots.forEach(dot => dot.classList.remove('active'));
+    testimonialsDots[currentTestimonialSlide].classList.add('active');
+  }
+
+  function autoTestimonialSlide() {
+    if (currentTestimonialSlide >= totalTestimonialSlides - 1) {
+      currentTestimonialSlide = 0;
+    } else {
+      currentTestimonialSlide++;
+    }
+    updateTestimonialCarousel();
+  }
+
+  function resetTestimonialAutoSlide() {
+    clearInterval(autoTestimonialInterval);
+    autoTestimonialInterval = setInterval(autoTestimonialSlide, 5000);
+  }
+
+  autoTestimonialInterval = setInterval(autoTestimonialSlide, 5000);
+}
+
+//!ehe
+const track = document.querySelector('.events .track');
+const slides = document.querySelectorAll('.events .slide');
+const dots = document.querySelectorAll('.events .dot');
+
+let index = 0;
+
+function getSlideWidth() {
+  const slide = slides[0];
+  const gap = parseFloat(getComputedStyle(track).gap) || 0;
+  return slide.offsetWidth + gap;
+}
+
+function getVisibleSlides() {
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 1024) return 2;
+  return 3;
+}
+
+function updateCarousel() {
+  const slideWidth = getSlideWidth();
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+dots.forEach((dot, i) => {
   dot.addEventListener('click', () => {
-    currentSlide = index;
+    index = i;
     updateCarousel();
-    resetAutoSlide();
   });
 });
 
-function updateCarousel() {
-  const offset = currentSlide * 100;
-  track.style.transform = `translateX(-${offset}%)`;
-  
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[currentSlide].classList.add('active');
-}
+setInterval(() => {
+  const maxIndex = slides.length - getVisibleSlides();
 
-function autoSlide() {
-  if (currentSlide >= totalSlides - 1) {
-    currentSlide = 0;
-  } else {
-    currentSlide++;
+  index++;
+
+  if (index > maxIndex) {
+    index = 0;
   }
+
   updateCarousel();
-}
+}, 5000);
 
-function resetAutoSlide() {
-  clearInterval(autoSlideInterval);
-  autoSlideInterval = setInterval(autoSlide, 5000);
-}
-
-autoSlideInterval = setInterval(autoSlide, 5000);
+window.addEventListener('resize', updateCarousel);

@@ -1,5 +1,5 @@
 .testimonials {
-  padding: 60px 100px;
+  padding: 60px 100px;  
   background-color: $myBg;
 
   .topTest {
@@ -50,7 +50,6 @@
           justify-content: center;
           gap: 60px;
           padding: 40px 60px;
-          background-color: #fff;
           box-sizing: border-box;
 
           .leftSLideContent {
@@ -74,11 +73,12 @@
             }
 
             p:nth-child(2) {
-              font-size: 18px;
+              font-size: 22px;
               font-weight: 700;
               color: #333;
               margin: 0;
               margin-bottom: 5px;
+              @include myFont();
             }
 
             p:nth-child(3) {
@@ -86,13 +86,14 @@
               color: #aaa;
               margin: 0;
               margin-bottom: 15px;
+              @include myFont();
             }
 
             .stars {
+              display: flex;
               i {
                 color: #ffc107;
                 font-size: 14px;
-                margin-right: 3px;
               }
             }
           }
@@ -101,11 +102,10 @@
             flex-shrink: 0;
 
             img {
-              width: 120px;
-              height: 120px;
+              width: 180px;
+              height: 180px;
               border-radius: 50%;
               object-fit: cover;
-              border: 5px solid #f0f0f0;
             }
           }
         }
