@@ -7,6 +7,7 @@
   background-image: url('../../../public/images/stats-bg.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   position: relative;
 
   &::before {
@@ -41,36 +42,44 @@
     }
   }
 
-  @media (max-width: 992px) {
-    gap: 50px;
-    padding: 50px 50px;
+  
+  @media (max-width: 900px) {
+    gap: 60px;
+    padding: 50px 60px;
+    flex-wrap: wrap;
 
     .stats {
+      flex: 0 0 calc(50% - 30px);
+
+      h2 {
+        font-size: 42px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px 20px;
+    background-attachment: scroll;
+
+    .stats {
+      flex: 1;
+      width: 100%;
+
       h2 {
         font-size: 40px;
+        margin-bottom: 8px;
       }
 
       p {
         font-size: 14px;
       }
     }
-  }
-
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: 40px;
-    padding: 40px 30px;
-
-    .stats {
-      h2 {
-        font-size: 36px;
-      }
-    }
-  }
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    gap: 30px;
-    padding: 40px 20px;
   }
 }

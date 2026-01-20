@@ -5,23 +5,8 @@
   padding-inline: 200px;
   background-color: $myBg;
   align-items: center;
-  height: 500px;
-
-  @media (max-width: 1400px) {
-    grid-template-columns: 1fr 1fr;
-    padding-inline: 50px;
-  }
-
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding-inline: 30px;
-  }
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    padding-inline: 20px;
-  }
+  min-height: 500px;
+  padding-block: 60px;
 
   .mainCard {
     background-color: $myred;
@@ -33,6 +18,12 @@
     padding: 40px 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
 
     h2 {
       color: white;
@@ -40,16 +31,15 @@
       font-size: 35px;
       margin-bottom: 15px;
       text-align: center;
+      @include myFont();
     }
 
     p {
       color: rgba(255, 255, 255, 0.9);
       font-size: 16px;
       text-align: center;
-      margin-bottom: 25px;
-      line-height: 1.5;
-      margin: 0; 
-      margin-bottom: 25px; 
+      margin: 0 0 25px 0;
+      line-height: 1.6;
     }
 
     .learnMore {
@@ -61,15 +51,17 @@
       -webkit-backdrop-filter: blur(25px) saturate(180%);
       background-color: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
       gap: 10px;
       color: white;
 
       p {
-        margin: 0; 
+        margin: 0;
         color: white;
         transition: color 0.3s ease;
+        font-weight: 500;
       }
 
       i {
@@ -80,8 +72,9 @@
       &:hover {
         background-color: white;
         color: $myred;
+        transform: translateY(-2px);
 
-        i, 
+        i,
         p {
           color: $myred;
         }
@@ -93,62 +86,182 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    @media (max-width: 600px) {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
   }
 
   .cards {
     background-color: #fff;
-    padding: 25px 20px;
+    padding: 30px 25px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    height: 380px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
 
     .iconContainer {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 15px auto;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px auto;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 24px;
+      font-size: 28px;
       background-color: #fff6f6;
       color: $myred;
-      border: 1px solid $myred;
+      border: 2px solid $myred;
       transition: all 0.3s ease;
     }
 
     &:hover .iconContainer {
       background-color: $myred;
       color: #fff;
+      transform: scale(1.1);
     }
 
     h3 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       color: #333;
     }
 
     p {
       font-size: 14px;
       color: #666;
-      line-height: 1.5;
-      margin: 0; 
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding-inline: 60px;
+    padding-block: 50px;
+    gap: 40px;
+    min-height: auto;
+
+    .mainCard {
+      height: auto;
+      padding: 35px 25px;
+      max-width: 100%;
+
+      h2 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .learnMore {
+        padding: 10px 20px;
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .cardContainer {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .cards {
+      height: 320px;
+      padding: 25px 20px;
+
+      .iconContainer {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+        margin-bottom: 18px;
+      }
+
+      h3 {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
+    padding-block: 40px;
+    gap: 30px;
+
+    .mainCard {
+      height: auto;
+      padding: 30px 20px;
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .learnMore {
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 200px;
+
+        p {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+
+    .cardContainer {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .cards {
+      height: auto;
+      min-height: 250px;
+      padding: 30px 20px;
+
+      &:hover {
+        transform: translateY(0);
+      }
+
+      .iconContainer {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   }
 }

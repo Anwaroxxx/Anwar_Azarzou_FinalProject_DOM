@@ -5,6 +5,8 @@ nav {
   background-color: #fff;
   height: 20px;
   @include sticky;
+  position: relative;
+  z-index: 1000;
 
   .logo h2 {
     font-size: 30px;
@@ -46,6 +48,126 @@ nav {
         background-color: darken($myred, 8%);
         transform: translateY(-2px);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: rgb(55, 55, 64);
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    padding: 20px 60px;
+    height: auto;
+
+    .logo h2 {
+      font-size: 26px;
+    }
+
+    .links {
+      gap: 20px;
+      padding: 15px;
+
+      a {
+        font-size: 14px;
+      }
+    }
+
+    .booking .bookingBtn {
+      padding: 10px 25px;
+      font-size: 14px;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    padding: 15px 20px;
+    height: auto;
+
+    .logo h2 {
+      font-size: 24px;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #fff;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 100px 40px 40px;
+      gap: 30px;
+      transition: right 0.4s ease-in-out;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+      &.active {
+        right: 0;
+      }
+
+      a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+    }
+
+    .booking {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .bookingBtn {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        text-align: center;
       }
     }
   }
