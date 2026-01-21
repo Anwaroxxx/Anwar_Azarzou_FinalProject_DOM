@@ -376,5 +376,3 @@ form.addEventListener('submit', (e) => {
   form.reset();
   modal.style.display = 'none';
 });
-
-
