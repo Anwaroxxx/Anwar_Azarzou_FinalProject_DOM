@@ -293,11 +293,38 @@ if (galleryTrack && gallerySlides.length > 0) {
 
   window.addEventListener("resize", updateGalleryCarousel);
 }
+
 //!Modal when i click on the button
 const modal = document.getElementById('reservationModal');
 const closeBtn = document.querySelector('.close');
 const form = document.getElementById('reservationForm');
 const bookingBtns = document.querySelectorAll('.bookingBtn');
+
+//*To store reservations in memory
+let reservations = [];
+
+//?check if time slots overlap
+
+function hasTimeConflict(newStart, newEnd) {
+  const newStartTime = new Date(`1970-01-01T${newStart}`).getTime();
+  const newEndTime = new Date(`1970-01-01T${newEnd}`).getTime();
+  
+  for (let reservation of reservations) {
+    const existingStart = new Date(`1970-01-01T${reservation.startTime}`).getTime();
+    const existingEnd = new Date(`1970-01-01T${reservation.endTime}`).getTime();
+    
+    //*Check if times overlap
+    if (
+      (newStartTime >= existingStart && newStartTime < existingEnd) ||
+      (newEndTime > existingStart && newEndTime <= existingEnd) ||
+      (newStartTime <= existingStart && newEndTime >= existingEnd)
+    ) {
+      return true;
+    }
+  }
+  
+  return false;
+}
 
 bookingBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
@@ -326,10 +353,25 @@ form.addEventListener('submit', (e) => {
     endTime: document.getElementById('endTime').value,
     numPeople: document.getElementById('numPeople').value
   };
+  //TODO => handling all edge cases like time conflicts and start time khass ykon 9bel mn end time
+  //* Validate end time is after start time
+  if (formData.startTime >= formData.endTime) {
+    alert('End time must be after start time!');
+    return;
+  }
+  
+  //* Check for time conflicts
+  if (hasTimeConflict(formData.startTime, formData.endTime)) {
+    alert('Sorry, this time slot is already reserved. Please choose a different time.');
+    return;
+  }
+  
+  //* Add to reservations array
+  reservations.push(formData);
   
   console.log('Reservation Data:', formData);
+  console.log('All Reservations:', reservations);
   alert('Reservation submitted successfully!');
-  
   
   form.reset();
   modal.style.display = 'none';
