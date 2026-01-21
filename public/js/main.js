@@ -293,3 +293,46 @@ if (galleryTrack && gallerySlides.length > 0) {
 
   window.addEventListener("resize", updateGalleryCarousel);
 }
+//!Modal when i click on the button
+const modal = document.getElementById('reservationModal');
+const closeBtn = document.querySelector('.close');
+const form = document.getElementById('reservationForm');
+const bookingBtns = document.querySelectorAll('.bookingBtn');
+
+bookingBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const formData = {
+    fullName: document.getElementById('fullName').value,
+    foodOption: document.getElementById('foodOption').value,
+    startTime: document.getElementById('startTime').value,
+    endTime: document.getElementById('endTime').value,
+    numPeople: document.getElementById('numPeople').value
+  };
+  
+  console.log('Reservation Data:', formData);
+  alert('Reservation submitted successfully!');
+  
+  
+  form.reset();
+  modal.style.display = 'none';
+});
+
+
