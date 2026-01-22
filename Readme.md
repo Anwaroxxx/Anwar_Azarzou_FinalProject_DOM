@@ -106,12 +106,12 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/yummy-restaurant.git
+   git clone https://github.com/Anwaroxxx/Anwar_Azarzou_FinalProject_DOM
    ```
 
 2. **Navigate to project directory**
    ```bash
-   cd yummy-restaurant
+   cd Anwar_Azarzou_FinalProject_DOM
    ```
 
 3. **Compile SCSS to CSS** (if making changes)
@@ -166,67 +166,47 @@
 ## 📁 Project Structure
 
 ```
-yummy-restaurant/
+ANWAR_AZARZOU_FINALPROJECT_DOM/
 │
-├── index.html              # Main HTML file
-├── css/
-│   └── style.css          # Compiled CSS from SCSS
-├── scss/
-│   ├── style.scss         # Main SCSS file
-│   ├── _variables.scss    # SCSS variables
-│   ├── _mixins.scss       # Reusable mixins
-│   └── _components.scss   # Component styles
-├── js/
-│   └── script.js          # Main JavaScript file
-├── images/
-│   ├── food/              # Food images
-│   ├── chefs/             # Chef photos
-│   └── gallery/           # Gallery images
-└── README.md              # This file
+├── node_modules/
+│
+├── public/
+│   ├── css/
+│   ├── images/
+│   └── js/
+│       ├── main.js
+│       └── responsivity.js
+│
+├── src/
+│   └── sass/
+│       ├── modules/
+│       │   ├── _about.scss
+│       │   ├── _bookATable.scss
+│       │   ├── _chefs.scss
+│       │   ├── _contact.scss
+│       │   ├── _events.scss
+│       │   ├── _footer.scss
+│       │   ├── _gallery.scss
+│       │   ├── _hero.scss
+│       │   ├── _menu.scss
+│       │   ├── _modal.scss
+│       │   ├── _navbar.scss
+│       │   ├── _stats.scss
+│       │   ├── _testimonials.scss
+│       │   └── _whyUs.scss
+│       │
+│       ├── _AllFunctions.scss
+│       ├── _AllModules.scss
+│       ├── _AllVariables.scss
+│       └── app.scss
+│
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+└── Readme.md
+
 ```
-
----
-
-## 📸 Screenshots
-
-### Homepage
-*A welcoming hero section with call-to-action*
-
-### Menu Section
-*Dynamic filtering and beautiful food presentation*
-
-### Booking Modal
-*User-friendly reservation form with validation*
-
-### Chef Profiles
-*Interactive cards with social media integration*
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Commit your changes**
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. **Push to the branch**
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. **Open a Pull Request**
-
-### Contribution Guidelines
-- Follow existing code style
-- Write clear commit messages
-- Test your changes thoroughly
-- Update documentation as needed
 
 ---
 
@@ -248,47 +228,11 @@ in the Software without restriction...
 
 ## 📞 Contact
 
-**Project Maintainer:** Your Name
+**Project Maintainer:** Anwar Azarzou
 
-- 📧 Email: your.email@example.com
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
-- 💼 LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
-- 🌐 Website: [www.yummyrestaurant.com](https://www.yummyrestaurant.com)
-
+- 📧 Email: anwar.azarzou.6969@gmail.com
+- 🐙 GitHub: [@Anwaroxxx](https://github.com/Anwaroxxx)
+- 💼 LinkedIn: [Anwar Azarzou](https://www.linkedin.com/in/anwar-azarzou-20b923271/)
+- 
 ---
 
-## 🙏 Acknowledgments
-
-- 🎨 Design inspiration from modern restaurant websites
-- 📚 Bootstrap for responsive grid system
-- 🎬 YouTube for video embedding
-- 💡 Stack Overflow community for problem-solving
-
----
-
-## 🐛 Known Issues
-
-- [ ] Auto-slide feature may need timing adjustments
-- [ ] Gallery navigation could be improved for mobile
-- [ ] Booking system doesn't persist data on refresh (future: add backend)
-
-## 🚧 Future Enhancements
-
-- [ ] Backend integration for permanent reservation storage
-- [ ] Email confirmation for bookings
-- [ ] Online payment integration
-- [ ] Customer reviews and ratings
-- [ ] Multi-language support
-- [ ] Dark mode toggle
-
----
-
-<div align="center">
-
-### ⭐ Star this repository if you found it helpful!
-
-Made with ❤️ and 🍕 by the Yummy Team
-
-**[Back to Top](#-yummy-restaurant-website)**
-
-</div>
